@@ -1,0 +1,587 @@
+document.addEventListener('click', event => {
+  if (event.target.dataset.open == 'callbass') {
+    event.preventDefault();
+    const authModal = $.modal({
+      url: document.location.href,
+      title: 'Записаться в бассейн',
+      content: `
+
+      
+    <div class="modal__wrap">
+    <form class="form-auth__form" action="" id="callDoctorForm">
+      <div class="modal__content-container">
+          <div class="modal__fieldset">
+              <div class="text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="name" id="form-cv-a-f">
+                  <label class="text-field__label" for="form-cv-a-f">
+                      <span class="text-field__text">Ваше имя</span>
+                  </label>
+              </div>
+
+              <div class="text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " data-phonemask="true" name="tel" id="form-cv-b-g">
+                  <label class="text-field__label" for="phoneInput2">
+                      <span class="text-field__text">Ваш телефон</span>
+                  </label>
+                </div>
+
+                <div class="text-field text-field">
+                <input class="write-inputs validate-input" type="text" placeholder=" " name="adress" id="form-cv-c-f">
+                <label class="text-field__label" for="form-cv-c-f">
+                  <span class="text-field__text">Ваш адрес</span>
+                </label>
+              </div>
+          </div>
+
+          <p class="modal__desc">Нажимая на кнопку, вы даете согласие на <a href="/politika-konfidentsialnosti/">обработку персональных данных</a></p>
+
+          <button class="btn form__submit-btn modal__btn" type="submit" id="sendCV"><span>Жду звонка</span></button>
+      </div>
+
+      <div class="modal__decoration">
+
+
+          <div class="modal__decoration-bottom">
+              <picture class="modal__decoration-pic">
+                  <source srcset="/local/templates/main/img/modal-img.webp" type="image/webp">
+                  <img src="/local/templates/main/img/modal-img.png">
+              </picture>
+
+              <svg class="icon icon-bub-1">
+                  <use xlink:href="/local/templates/main/img/modal-bubble-1.svg#modal-bubble-1"></use>
+              </svg>
+
+              <svg class="icon icon-bub-2">
+                  <use xlink:href="/local/templates/main/img/modal-bubble-2.svg#modal-bubble-2"></use>
+              </svg>
+
+              <svg class="icon icon-bub-3">
+                  <use xlink:href="/local/templates/main/img/modal-bubble-3.svg#modal-bubble-3"></use>
+              </svg>
+          </div>
+      </div>
+
+    </form>
+    <div class="hidden success">В ближайшее время мы вам перезвоним.</div>
+  </div>
+
+
+
+      `
+    })
+
+    setTimeout(() => {
+      authModal.open()
+    }, 100)
+
+    setTimeout(() => {
+      authModal.open()
+      let phoneMask = document.getElementById('form-cv-b-g') || false
+      if (phoneMask) {
+        var maskOptions = {
+          mask: '{+7} (#00) 000-00-00',
+          definitions: {
+            '#': /[012345679]/
+          }
+        };
+            let mask = IMask(phoneMask, maskOptions);
+      }
+    }, 100)
+
+    let successText = document.querySelector('.success')
+
+    callDoctorForm.onsubmit = async (e) => {
+      e.preventDefault();	
+      let nameInput = callDoctorForm.querySelector('[name=name]')
+      let phoneInput = callDoctorForm.querySelector('[name=tel]')
+
+      
+      if (nameInput.value === ''){
+        nameInput.classList.add('input_error')
+        nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+      } else {
+        nameInput.classList.remove('input_error')
+        nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+      }
+
+      if (phoneInput.value.length < 17){
+        phoneInput.classList.add('input_error')
+        phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+      } else {
+        phoneInput.classList.remove('input_error')
+        phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+      }
+
+      let title = document.querySelector('.d-modal__title').innerHTML
+
+      let formData = new FormData(callDoctorForm)
+      formData.append('title', title)
+      formData.append('url', document.location.href)
+      let response = await fetch('/include/actions/calldoctor.php', {
+        method: 'POST',
+        body: formData
+      })
+      let result = await response.json();
+
+      if (result.message === 'Заявка отправлена, наш специалист свяжется с Вами в ближайшее время' ) {
+          callDoctorForm.reset()
+          document.querySelector('.d-modal__title').innerHTML = 'Форма успешно отправлена'
+          callDoctorForm.classList.add('hidden')
+          successText.classList.remove('hidden')
+          setTimeout(() => {
+              authModal.close()
+            }, 3000)
+  }
+  }
+
+
+  }
+
+    if (event.target.dataset.open == 'callback') {
+      event.preventDefault();
+      const authModal = $.modal({
+        url: document.location.href,
+        title: 'Вызвать врача на дом',
+        content: `
+
+        
+      <div class="modal__wrap">
+      <form class="form-auth__form" action="" id="callDoctorForm">
+        <div class="modal__content-container">
+            <div class="modal__fieldset">
+                <div class="text-field">
+                    <input class="write-inputs validate-input" type="text" placeholder=" " name="name" id="form-cv-a-f">
+                    <label class="text-field__label" for="form-cv-a-f">
+                        <span class="text-field__text">Ваше имя</span>
+                    </label>
+                </div>
+
+                <div class="text-field">
+                    <input class="write-inputs validate-input" type="text" placeholder=" " data-phonemask="true" name="tel" id="form-cv-b-g">
+                    <label class="text-field__label" for="phoneInput2">
+                        <span class="text-field__text">Ваш телефон</span>
+                    </label>
+                  </div>
+
+                  <div class="text-field text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="adress" id="form-cv-c-f">
+                  <label class="text-field__label" for="form-cv-c-f">
+                    <span class="text-field__text">Ваш адрес</span>
+                  </label>
+                </div>
+            </div>
+
+            <p class="modal__desc">Нажимая на кнопку, вы даете согласие на <a href="/politika-konfidentsialnosti/">обработку персональных данных</a></p>
+
+            <button class="btn form__submit-btn modal__btn" type="submit" id="sendCV"><span>Жду звонка</span></button>
+        </div>
+
+        <div class="modal__decoration">
+
+
+            <div class="modal__decoration-bottom">
+                <picture class="modal__decoration-pic">
+                    <source srcset="/local/templates/main/img/modal-img.webp" type="image/webp">
+                    <img src="/local/templates/main/img/modal-img.png">
+                </picture>
+
+                <svg class="icon icon-bub-1">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-1.svg#modal-bubble-1"></use>
+                </svg>
+
+                <svg class="icon icon-bub-2">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-2.svg#modal-bubble-2"></use>
+                </svg>
+
+                <svg class="icon icon-bub-3">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-3.svg#modal-bubble-3"></use>
+                </svg>
+            </div>
+        </div>
+  
+      </form>
+      <div class="hidden success">В ближайшее время мы вам перезвоним.</div>
+    </div>
+
+
+
+        `
+      })
+  
+      setTimeout(() => {
+        authModal.open()
+      }, 100)
+
+      setTimeout(() => {
+        authModal.open()
+        let phoneMask = document.getElementById('form-cv-b-g') || false
+        if (phoneMask) {
+          var maskOptions = {
+            mask: '{+7} (#00) 000-00-00',
+            definitions: {
+              '#': /[012345679]/
+            }
+          };
+              let mask = IMask(phoneMask, maskOptions);
+        }
+      }, 100)
+
+      let successText = document.querySelector('.success')
+
+      callDoctorForm.onsubmit = async (e) => {
+        e.preventDefault();	
+        let nameInput = callDoctorForm.querySelector('[name=name]')
+        let phoneInput = callDoctorForm.querySelector('[name=tel]')
+
+        
+        if (nameInput.value === ''){
+          nameInput.classList.add('input_error')
+          nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+        } else {
+          nameInput.classList.remove('input_error')
+          nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+        }
+
+        if (phoneInput.value.length < 17){
+          phoneInput.classList.add('input_error')
+          phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+        } else {
+          phoneInput.classList.remove('input_error')
+          phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+        }
+
+        let title = document.querySelector('.d-modal__title').innerHTML
+
+        let formData = new FormData(callDoctorForm)
+        formData.append('title', title)
+        formData.append('url', document.location.href)
+        let response = await fetch('/include/actions/calldoctor.php', {
+          method: 'POST',
+          body: formData
+        })
+        let result = await response.json();
+	
+        if (result.message === 'Заявка отправлена, наш специалист свяжется с Вами в ближайшее время' ) {
+            callDoctorForm.reset()
+            document.querySelector('.d-modal__title').innerHTML = 'Форма успешно отправлена'
+            callDoctorForm.classList.add('hidden')
+            successText.classList.remove('hidden')
+            setTimeout(() => {
+                authModal.close()
+              }, 3000)
+    }
+    }
+
+  
+    }
+})
+
+document.addEventListener('click', event => {
+    if (event.target.dataset.open == 'zapis') {
+      event.preventDefault();
+      const authModal = $.modal({
+        title: 'Записаться к специалисту',
+        content: `
+        
+      <div class="modal__wrap">
+      <form class="form-auth__form" action="" id="zapisDoctorForm">
+        <div class="modal__content-container">
+            <div class="modal__fieldset">
+                <div class="text-field">
+                    <input class="write-inputs validate-input" type="text" placeholder=" " name="name" id="form-cv-a-f">
+                    <label class="text-field__label" for="form-cv-a-f">
+                        <span class="text-field__text">Ваше имя</span>
+                    </label>
+                </div>
+
+                <div class="text-field">
+                    <input class="write-inputs validate-input" type="text" placeholder=" " data-phonemask="true" name="tel" id="form-cv-b-f">
+                    <label class="text-field__label" for="phoneInput2">
+                        <span class="text-field__text">Ваш телефон</span>
+                    </label>
+                  </div>
+            </div>
+
+            <p class="modal__desc">Нажимая на кнопку, вы даете согласие на <a href="/politika-konfidentsialnosti/">обработку персональных данных</a></p>
+
+            <button class="btn form__submit-btn modal__btn" type="submit" id="sendCV"><span>Жду звонка</span></button>
+        </div>
+
+        <div class="modal__decoration">
+
+
+            <div class="modal__decoration-bottom">
+                <picture class="modal__decoration-pic">
+                    <source srcset="/local/templates/main/img/modal-img.webp" type="image/webp">
+                    <img src="/local/templates/main/img/modal-img.png">
+                </picture>
+
+                <svg class="icon icon-bub-1">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-1.svg#modal-bubble-1"></use>
+                </svg>
+
+                <svg class="icon icon-bub-2">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-2.svg#modal-bubble-2"></use>
+                </svg>
+
+                <svg class="icon icon-bub-3">
+                    <use xlink:href="/local/templates/main/img/modal-bubble-3.svg#modal-bubble-3"></use>
+                </svg>
+            </div>
+        </div>
+  
+      </form>
+      <div class="hidden success">В ближайшее время мы вам перезвоним.</div>
+    </div>
+
+
+        
+        
+        `
+      })
+  
+      setTimeout(() => {
+        authModal.open()
+      }, 100)
+
+      setTimeout(() => {
+        authModal.open()
+        let phoneMask = document.getElementById('form-cv-b-f') || false
+        if (phoneMask) {
+          var maskOptions = {
+            mask: '{+7} (#00) 000-00-00',
+            definitions: {
+              '#': /[012345679]/
+            }
+          };
+              let mask = IMask(phoneMask, maskOptions);
+        }
+      }, 100)
+
+      let successText = document.querySelector('.success')
+
+      let doctor = document.querySelector('h1.title').innerHTML
+      zapisDoctorForm.onsubmit = async (e) => {
+        e.preventDefault();	
+
+        let nameInput = zapisDoctorForm.querySelector('[name=name]')
+        let phoneInput = zapisDoctorForm.querySelector('[name=tel]')
+
+        
+        if (nameInput.value === ''){
+          nameInput.classList.add('input_error')
+          nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+        } else {
+          nameInput.classList.remove('input_error')
+          nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+        }
+
+        if (phoneInput.value.length < 17){
+          phoneInput.classList.add('input_error')
+          phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+        } else {
+          phoneInput.classList.remove('input_error')
+          phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+        }
+        let title = document.querySelector('.d-modal__title').innerHTML
+
+        let formData = new FormData(zapisDoctorForm)
+        formData.append('doctor', doctor)
+        formData.append('title', title)
+        formData.append('url', document.location.href)
+        let response = await fetch('/include/actions/zapisdoctor.php', {
+          method: 'POST',
+          body: formData
+        })
+        let result = await response.json();
+	
+        if (result.message === 'Заявка отправлена, наш специалист свяжется с Вами в ближайшее время' ) {
+            zapisDoctorForm.reset()
+            document.querySelector('.d-modal__title').innerHTML = 'Форма успешно отправлена'
+            zapisDoctorForm.classList.add('hidden')
+            successText.classList.remove('hidden')
+            setTimeout(() => {
+                authModal.close()
+              }, 3000)
+            
+    }
+    }
+
+  
+    }
+})
+
+
+document.addEventListener('click', event => {
+  if (event.target.dataset.open == "callack1") {
+    event.preventDefault()
+    const cvModal = $.modal({
+      title: 'Хотите мы вам перезвоним?',
+      content: `
+
+      <div class="modal__wrap">
+        <form class="form-auth__form" action="" id="callackForm">
+          <div class="modal__content-container">
+              <div class="modal__fieldset">
+                  <div class="text-field">
+                      <input class="write-inputs validate-input" type="text" placeholder=" " name="FIO" id="form-cv-a-f">
+                      <label class="text-field__label" for="form-cv-a-f">
+                          <span class="text-field__text">Ваше имя</span>
+                      </label>
+                  </div>
+  
+                  <div class="text-field">
+                      <input class="write-inputs validate-input" type="text" placeholder=" " name="phone" id="phoneInput2">
+                      <label class="text-field__label" for="phoneInput2">
+                          <span class="text-field__text">Ваш телефон</span>
+                      </label>
+                    </div>
+              </div>
+  
+              <p class="modal__desc">Нажимая на кнопку, вы даете согласие на <a href="/politika-konfidentsialnosti/">обработку персональных данных</a></p>
+  
+              <button class="btn form__submit-btn modal__btn" type="submit" id="sendCV"><span>Жду звонка</span></button>
+          </div>
+  
+          <div class="modal__decoration">
+
+  
+              <div class="modal__decoration-bottom">
+                  <picture class="modal__decoration-pic">
+                      <source srcset="/local/templates/main/img/modal-img.webp" type="image/webp">
+                      <img src="/local/templates/main/img/modal-img.png">
+                  </picture>
+  
+                  <svg class="icon icon-bub-1">
+                      <use xlink:href="/local/templates/main/img/modal-bubble-1.svg#modal-bubble-1"></use>
+                  </svg>
+  
+                  <svg class="icon icon-bub-2">
+                      <use xlink:href="/local/templates/main/img/modal-bubble-2.svg#modal-bubble-2"></use>
+                  </svg>
+  
+                  <svg class="icon icon-bub-3">
+                      <use xlink:href="/local/templates/main/img/modal-bubble-3.svg#modal-bubble-3"></use>
+                  </svg>
+              </div>
+          </div>
+    
+        </form>
+        <div class="hidden success">В ближайшее время мы вам перезвоним.</div>
+      </div>
+      `
+    })
+
+    let successText = document.querySelector('.success')
+
+    callackForm.onsubmit = async (e) => {
+      e.preventDefault();	
+
+      let nameInput = callackForm.querySelector('[name=FIO]')
+      let phoneInput = callackForm.querySelector('[name=phone]')
+
+      
+      if (nameInput.value === ''){
+        nameInput.classList.add('input_error')
+        nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+      } else {
+        nameInput.classList.remove('input_error')
+        nameInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+      }
+
+      if (phoneInput.value.length < 17){
+        phoneInput.classList.add('input_error')
+        phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.add('input_error_text')
+      } else {
+        phoneInput.classList.remove('input_error')
+        phoneInput.parentNode.querySelector('.text-field__label .text-field__text').classList.remove('input_error_text')
+      }
+
+
+      let title = document.querySelector('.d-modal__title').innerHTML
+      let formData = new FormData(callackForm)
+      formData.append('title', title)
+      formData.append('url', document.location.href)
+      let response = await fetch('/include/actions/mango.php', {
+        method: 'POST',
+        body: formData
+      })
+      let result = await response.json();
+
+      if (result.message === 'Заявка отправлена' ) {
+        callackForm.reset()
+        document.querySelector('.d-modal__title').innerHTML = 'Форма успешно отправлена'
+        callackForm.classList.add('hidden')
+        successText.classList.remove('hidden')
+        setTimeout(() => {
+          cvModal.close()
+          }, 3000)
+        
+  }
+  }
+
+    const CVInput = document.getElementById('form-send-files') || false;
+    const sendCV = document.getElementById('sendCV') || false;
+
+    if (CVInput) {
+      const CVListArea = document.getElementById('CVListArea');
+      CVInput.onchange = function () {
+        AddCV();
+        sendCV.disabled = false;
+        let addOthers = document.createElement('a');
+        addOthers.classList.add('plain__link');
+        addOthers.textContent = 'Удалить файлы'
+        CVListArea.appendChild(addOthers);
+        addOthers.addEventListener('click', function () {
+          RemoveCV();
+          sendCV.disabled = true;
+        })
+      }
+    }
+
+    function AddCV() {
+      let files = CVInput.files;
+      let file;
+      for (let i = 0; i < files.length; i++) {
+        file = files[i];
+        let elem = document.createElement('p');
+        elem.textContent = file.name;
+        CVListArea.appendChild(elem);
+      }
+    }
+
+    function RemoveCV() {
+      CVInput.value = "";
+      while (CVListArea.firstChild) {
+        CVListArea.removeChild(CVListArea.firstChild);
+      }
+    }
+
+    var selectDefault = document.querySelectorAll('.select-js') || false;
+
+      if (selectDefault) {
+      selectDefault.forEach(function(i) {
+          var choicesDefault = new Choices(i, {
+              searchEnabled: false,
+              itemSelectText: '',
+              shouldSort: false,
+              placeholder: true
+              })
+      })
+      }
+
+    setTimeout(() => {
+      cvModal.open()
+      let phoneMask = document.getElementById('phoneInput2') || false;
+      if (phoneMask) {
+        var maskOptions = {
+          mask: '{+7} (#00) 000-00-00',
+          definitions: {
+            '#': /[012345679]/
+          }
+        };
+        let mask = IMask(phoneMask, maskOptions);
+      }
+    }, 100)
+  }
+})

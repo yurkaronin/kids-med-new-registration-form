@@ -1,0 +1,21 @@
+
+
+window.addEventListener('load', (event) => {
+	document.querySelectorAll('.video-js').forEach(el => {
+	  videojs(el, {
+		language: 'ru'
+	  });
+	});
+
+	var more = document.querySelector('#cust-show-more');
+	var hidden = document.querySelectorAll('.hidden-video');
+	if (!!more) {
+		more.addEventListener('click', function () {
+
+		  for (elem of hidden) {
+			elem.classList.remove('hidden-video');
+			more.classList.add('hidden-video');
+		  }
+		});
+	}
+});

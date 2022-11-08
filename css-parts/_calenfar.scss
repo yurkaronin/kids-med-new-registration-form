@@ -1,0 +1,132 @@
+.calendar {
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+  }
+
+  th {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    color: #343d42;
+    padding: 12px 16px;
+    background: #ffd601;
+    border-right: 1px solid #ffffff;
+    text-align: left;
+    text-transform: uppercase;
+
+    &:first-child {
+      border-left: none;
+      border-radius: 8px 0 0 0;
+    }
+    &:last-child {
+      border: none;
+      border-radius: 0 8px 0 0;
+    }
+  }
+
+  col {
+    background: #ffffff;
+    color: rgba(52, 61, 66, 0.7);
+  }
+
+  td {
+    border: 1px solid #d6d7e8;
+    padding: 8px 16px 11px;
+    width: calc(100% / 7);
+    font-family: inherit;
+    transition: all 0.3s;
+
+    span {
+      display: block;
+      margin: 0;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.33;
+      text-align: right;
+      color: #343d42;
+      font-family: inherit;
+    }
+    small {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.43;
+      margin: 0;
+    }
+  }
+  .open,
+  td.open {
+    background-color: #42a53b !important;
+    color: #e3eef4 !important;
+    font-family: inherit;
+    cursor: pointer;
+
+    span {
+      color: inherit;
+      font-family: inherit;
+    }
+    &:empty {
+      background-color: #ffffff !important;
+      cursor: initial;
+    }
+  }
+
+
+
+  td[value="choose"] {
+    background: #e4097f !important;
+    border: 1px solid #d6d7e8;
+    color: #ffffff;
+
+    span {
+      color: inherit;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    padding: 0 43px;
+  }
+
+  &__button {
+    position: absolute;
+    width: 43px;
+    height: calc(100% - 40.5px);
+    box-sizing: border-box;
+    top: 40.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    transition: all 0.3s;
+    border-radius: 8px 0 0 8px;
+
+    svg {
+      pointer-events: none;
+    }
+    svg path {
+      transition: all 0.3s;
+    }
+
+    &--next {
+      left: initial;
+      right: 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    &:hover {
+      background-color: #ffd601;
+
+      svg path {
+        stroke: #343d42;
+      }
+    }
+  }
+}
