@@ -4,6 +4,7 @@
     max-width: 100%;
     border-collapse: collapse;
     margin: auto;
+    margin-bottom: 28px;
   }
 
   th {
@@ -74,8 +75,6 @@
     }
   }
 
-
-
   td[value="choose"] {
     background: #e4097f !important;
     border: 1px solid #d6d7e8;
@@ -127,6 +126,44 @@
       svg path {
         stroke: #343d42;
       }
+    }
+  }
+
+  .empty {
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    &__wrap {
+      position: initial;
+    }
+    &__button {
+      top: 0;
+      height: 32px;
+      width: 32px;
+    }
+    &__wrap {
+      padding: 0;
+    }
+    td,
+    th {
+      padding: 0.5em;
+      width: 44px;
+      height: 44px;
+      font-size: 16px;
+    }
+    td small {
+      display: none;
+    }
+    td span {
+      text-align: center;
+      line-height: 1;
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 425px) {
+    &__button {
+      top: 16px;
     }
   }
 }

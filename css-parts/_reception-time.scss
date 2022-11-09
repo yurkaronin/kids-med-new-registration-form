@@ -56,4 +56,21 @@
     cursor: pointer;
   }
 
+  @media (max-width: 1200px) {
+    li {
+      max-width: calc(100% / 4 - 7px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    li {
+      max-width: calc(50% - 3.5px);
+    }
+    .online-form__title {
+      padding: 0;
+    }
+  }
+
+
+
 }

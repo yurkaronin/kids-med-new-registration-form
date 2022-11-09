@@ -1,108 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Глобальные переменные
+  const onlineForm = document.querySelector('.online-form');
+  const onlineFormCall = document.querySelector('.online-form-call');
+  // const onlineFormContent = document.querySelector('.online-form__content');
+  const onlineFormCloseBTN = document.querySelector('.online-form__close-btn');
+  const calendarElem = document.querySelector('#calendar');
 
-  // select-1 – id элемента
+  // инициализация кастомных select в форме регистрации
   const select1 = new ItcCustomSelect('#select-1');
   const select2 = new ItcCustomSelect('#select-2');
   const select3 = new ItcCustomSelect('#select-3');
 
-  // Глобальные переменные
-  const onlineForm = document.querySelector('.online-form');
-  const onlineFormCall = document.querySelector('.online-form-call');
-  const onlineFormContent = document.querySelector('.online-form__content');
-  const onlineFormCloseBTN = document.querySelector('.online-form__close-btn');
-
-  // для разработки
-  document.addEventListener('click', e => console.log(e.target));
-
-  document.addEventListener('click', (e) => {
-    if (e.target === onlineFormCall) {
-      onlineForm.classList.add('open');
-      document.body.classList.add('scroll-off');
-      createCalendar(calendar, 2022, 11);
-    } else if (e.target === onlineFormCloseBTN) {
-      onlineForm.classList.remove('open');
-      document.body.classList.remove('scroll-off');
-    } else if (e.target.classList.contains('online-form')) {
-      if (e.target.classList.contains('open')) {
-        onlineForm.classList.remove('open');
-        document.body.classList.remove('scroll-off');
-      };
-    }
-  });
-
-  // удаляем все значения атрибута в коллекции
+  // удаляет все значения атрибута value в кастомном календаре
   function killEmAll() {
     for (let item2 of openDay) {
       item2.removeAttribute('value');
     };
-  }
+  };
 
-  // выбор дня в календаре
-  const openDay = document.querySelectorAll('td.open');
-  console.log(openDay);
+  // подключение скриптов из parts
+  function include(url) {
+    let script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  };
+  // удаляет все значения атрибута value в кастомном календаре
+  function killEmAll() {
+    for (let item2 of openDay) {
+      item2.removeAttribute('value');
+    };
+  };
 
-  for (let item of openDay) {
-    item.addEventListener('click', function() {
-      killEmAll();
+  // слушаем клики
+  function liseneClick() {
+    document.addEventListener('click', (e) => {
+      let clickTarget = e.target;
 
-      item.setAttribute('value', 'choose');
+      if (clickTarget === onlineFormCloseBTN) {
+        dialogItem.classList.remove('open');
+        document.body.classList.remove('scroll-off');
+      } else if (clickTarget.classList.contains('online-form')) {
+        if (clickTarget.classList.contains('open')) {
+          dialogItem.classList.remove('open');
+          document.body.classList.remove('scroll-off');
+        };
+      };
     });
 
   }
 
-  // генерация календаря
-  function createCalendar(elem, year, month) {
+  // события показа формы регистрации на странице
+  document.addEventListener('click', (e) => {
 
-    let mon = month - 1; // месяцы в JS идут от 0 до 11, а не от 1 до 12
-    let d = new Date(year, mon);
+    // показ формы
+    let clickTarget = e.target;
 
-    let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
+    if (clickTarget === onlineFormCall) {
+      onlineForm.classList.add('open');
+      document.body.classList.add('scroll-off');
 
-    // пробелы для первого ряда
-    // с понедельника до первого дня месяца
-    // * * * 1  2  3  4
-    for (let i = 0; i < getDay(d); i++) {
-      table += '<td></td>';
+      // пока что буду вызывать календарь тут, для тестов
+      createCalendar(calendar, 2022, 11);
+
+    } else if (clickTarget === onlineFormCloseBTN) {
+      onlineForm.classList.remove('open');
+      document.body.classList.remove('scroll-off');
+    } else if (clickTarget.classList.contains('online-form')) {
+      if (clickTarget.classList.contains('open')) {
+        onlineForm.classList.remove('open');
+        document.body.classList.remove('scroll-off');
+      };
+    };
+
+    if (clickTarget.id === 'js-btn-proof') {
+      let dialogItem = document.querySelector('#js-modal-proof');
+      dialogItem.classList.add('open');
+      document.body.classList.add('scroll-off');
+      liseneClick();
+
     }
 
-    // <td> ячейки календаря с датами
-    while (d.getMonth() == mon) {
-      table += '<td><span>' + d.getDate() + '</span><small>16:00-20:00</small></td>';
 
-      if (getDay(d) % 7 == 6) { // вс, последний день - перевод строки
-        table += '</tr><tr>';
-      }
+  });
 
-      d.setDate(d.getDate() + 1);
-    }
+  // подключаем скрипты тут
+  include("./js/parts/calendar.js");
 
-    // добить таблицу пустыми ячейками, если нужно
-    // 29 30 31 * * * *
-    if (getDay(d) != 0) {
-      for (let i = getDay(d); i < 7; i++) {
-        table += '<td></td>';
-      }
-    }
-
-    // закрыть таблицу
-    table += '</tr></table>';
-
-    elem.innerHTML = table;
-  }
-
-  function getDay(date) { // получить номер дня недели, от 0 (пн) до 6 (вс)
-    let day = date.getDay();
-    if (day == 0) day = 7; // сделать воскресенье (0) последним днем
-    return day - 1;
-  }
-
-//  ВРЕМЕННО!
-// вызываем функцию если на странице есть календарь
-if(document.querySelector('#calendar')) {
-  createCalendar(calendar, 2022, 11);
-};
-
-
-
+  // ВРЕМЕННО! Удалить на продакшене!  ////////////
+  document.addEventListener('click', e => console.log(e.target));
 
 });

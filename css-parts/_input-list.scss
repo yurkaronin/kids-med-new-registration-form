@@ -1,4 +1,5 @@
 .input-list {
+  margin: 0 !important;
   ul {
     list-style: none;
     margin: 0;
@@ -9,8 +10,21 @@
   }
   li {
     padding: initial;
+    margin: 0;
     &::before {
       display: none;
+    }
+  }
+
+  .write-inputs:not(:placeholder-shown) {
+    color: #000000;
+    border-color: #34358c;
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
   }
 }

@@ -14,9 +14,6 @@
   justify-content: center;
   visibility: hidden;
 
-  &__form {
-  }
-
   &::after {
     content: "";
     position: absolute;
@@ -53,15 +50,15 @@
     max-height: 100%;
     overflow-y: scroll;
     overflow-x: initial;
-    padding-right: 42px;
+    padding-right: 32px;
     position: relative;
-    margin-left: 42px;
+    margin-left: 32px;
   }
 
   &__content {
     max-width: 1168px;
     width: 100%;
-    margin: 20px;
+    // margin: 20px;
     background: #ffffff;
     border-radius: 16px;
     padding: 20px 40px 40px;
@@ -88,8 +85,8 @@
 
   &__close-btn {
     position: absolute;
-    top: -10px;
-    right: -20px;
+    top: -32px;
+    right: -32px;
     z-index: 22;
     background-image: url(../img/close-wrap.svg);
     width: 64px;
@@ -127,7 +124,7 @@
 
   &__grop-name {
     display: block;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 2.4em;
     color: #34358c;
     background-color: #fff;
@@ -157,7 +154,7 @@
       width: 100%;
       font-size: 14px;
       line-height: 20px;
-      color: #343D42;
+      color: #343d42;
 
       &::before {
         left: -40px;
@@ -166,10 +163,100 @@
         left: -32.5px;
       }
 
-
       a {
         padding-right: 6px;
       }
+    }
+  }
+
+  &#js-modal-proof {
+    .wrapper {
+      height: initial;
+      max-height: initial;
+      overflow: initial;
+    }
+    .online-form__content {
+      max-width: 688px;
+      top: initial;
+    }
+    .online-form__wrapper {
+      border: none;
+      padding-bottom: 32px;
+    }
+
+    .form__submit-btn {
+      width: 100%;
+      max-width: 100%;
+    }
+    .under-button {
+      margin: 0;
+      margin-top: 19px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.43;
+      color: #343d42;
+      font-family: inherit;
+    }
+  }
+
+  .checkbox__label::after {
+    left: -34.5px;
+  }
+
+  @media (max-width: 768px) {
+    &__group:last-child {
+      margin-bottom: 0;
+    }
+    &__content {
+      top: 70px;
+      padding: 20px;
+      .title {
+        font-size: 32px;
+      }
+    }
+    &__title {
+      margin: 0 auto;
+      padding: 0 43px;
+      text-align: center;
+      margin-bottom: 21px;
+      font-size: 25px;
+      line-height: 1.4;
+    }
+
+    &__close-btn {
+      top: -25px;
+      right: -25px;
+      width: 50px;
+      height: 50px;
+      background-image: url(../img/close-wrap-50.svg);
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__footer {
+      grid-template-columns: 1fr;
+
+      .btn span {
+        font-size: 14px;
+        line-height: 1;
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    .wrapper {
+      padding-right: 15px;
+      margin-left: 15px;
+      margin-bottom: 25px;
+    }
+    &__close-btn {
+      right: -15px;
+    }
+    &__content {
+      top: 40px;
     }
   }
 }
