@@ -3,6 +3,14 @@
 .scroll-off {
   overflow: hidden;
 }
+
+.btn-center {
+  margin: 0 auto;
+}
+
+.hide {
+  display: none !important;
+}
 @import "css-parts/visually-hidden";
 @import "css-parts/online-form";
 @import "css-parts/itc-select";

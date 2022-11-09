@@ -53,6 +53,8 @@
     padding-right: 32px;
     position: relative;
     margin-left: 32px;
+    padding-top: 120px;
+    margin-top: -120px;
   }
 
   &__content {
@@ -64,7 +66,7 @@
     padding: 20px 40px 40px;
     position: relative;
     z-index: 11;
-    top: 120px;
+    // top: 120px;
 
     .title {
       font-weight: 800;
@@ -106,8 +108,7 @@
   &__wrapper {
     position: relative;
     z-index: 2;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #d6d7e8;
+    // padding-bottom: 40px;
   }
 
   &.open {
@@ -136,6 +137,7 @@
   }
 
   &__footer {
+    border-top: 1px solid #d6d7e8;
     padding-top: 40px;
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -177,7 +179,7 @@
     }
     .online-form__content {
       max-width: 688px;
-      top: initial;
+      // top: initial;
     }
     .online-form__wrapper {
       border: none;
@@ -208,7 +210,7 @@
       margin-bottom: 0;
     }
     &__content {
-      top: 70px;
+      // top: 70px;
       padding: 20px;
       .title {
         font-size: 32px;
@@ -256,7 +258,7 @@
       right: -15px;
     }
     &__content {
-      top: 40px;
+      // top: 40px;
     }
   }
 }

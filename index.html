@@ -47,15 +47,15 @@
           </div>
 
           <div class="header__buttons">
-            <a href="#" class="btn brn--primary header__btn online-form-call">
+            <a href="#" class="btn brn--primary header__btn call-btn" data-btn-num="1">
               <span>Записаться к врачу</span>
             </a>
 
-            <a href="#" class="btn brn--primary header__btn online-form-proof" id="js-btn-proof">
+            <a href="#" class="btn brn--primary header__btn online-form-proof call-btn" data-btn-num="2">
               <span>Подтверждение данных</span>
             </a>
 
-            <a href="#" class="btn brn--primary header__btn online-form-thanks">
+            <a href="#" class="btn brn--primary header__btn online-form-thanks call-btn" data-btn-num="3">
               <span>Спасибо!</span>
             </a>
           </div>
@@ -572,7 +572,7 @@
   </footer>
 
   <!-- диалоговое окно  с формой онлайн записи -->
-  <section class="online-form" id="js-online-form">
+  <section class="online-form" id="online-form-1" data-dialog-window="1">
     <div class="wrapper">
 
       <div class="online-form__content">
@@ -653,9 +653,14 @@
                 </ul>
               </div>
             </figure>
+            <!-- Эта кнопка должна отправлять данные на основе которых формируются доступные дни в календаре  -->
+            <!-- если есть лучшее решение - убираем кнопку и реализуем что то другое  -->
+            <button class="submit-btn form__submit-btn btn btn-center" type="submit" id="pick-date-btn">
+              <span>Выбрать дату</span>
+            </button>
 
             <!-- Выберите дату -->
-            <figure class="online-form__group itc-select calendar">
+            <figure class="online-form__group itc-select calendar hide" id="calendar-wrap">
               <figcaption class="online-form__title">Выберите дату: <span>10 Ноябрь, 2022</span></figcaption>
               <div class="calendar__wrap">
                 <table>
@@ -834,7 +839,7 @@
                       <span>30</span>
                       <small>Нет записи</small>
                     </td>
-                    <td>
+                    <td class="empty">
 
                     </td>
                     <td class="empty">
@@ -871,7 +876,7 @@
             </figure>
 
             <!-- Выберите время -->
-            <figure class="online-form__group reception-time">
+            <figure class="online-form__group reception-time hide">
               <figcaption class="online-form__title">Выберите время приема: 9:30 - 20:00</figcaption>
 
               <ul>
@@ -914,7 +919,7 @@
             </figure>
 
             <!-- Введите личные данные  -->
-            <figure class="online-form__group input-list">
+            <figure class="online-form__group input-list hide">
               <figcaption class="online-form__title">Введите личные данные</figcaption>
               <ul>
                 <li class="text-field">
@@ -935,12 +940,10 @@
 
             </figure>
 
-
-
           </div>
 
           <!-- блок с результатами выбора -->
-          <div class="form-result">
+          <div class="form-result hide">
             <div class="form-result__photo">
               <img src="./img/form-result-img.jpg" alt="" width="192" height="192">
             </div>
@@ -958,7 +961,7 @@
           </div>
 
           <!-- копирайт и форма отправки данных из формы  -->
-          <div class="online-form__footer">
+          <div class="online-form__footer hide">
 
             <div class="checkbox">
               <input class="agreement" type="checkbox" name="remember" id="form-cv-d-f">
@@ -967,7 +970,7 @@
                 персональных данных</label>
             </div>
 
-            <button class="submit-btn form__submit-btn btn" type="submit" id="sendCV">
+            <button class="submit-btn form__submit-btn btn" type="submit">
               <span>Получить код подтверждения</span>
             </button>
           </div>
@@ -987,7 +990,7 @@
     </div>
   </section>
   <!-- диалоговое окно для подтверждения данных  -->
-  <section class="online-form" id="js-modal-proof">
+  <section class="online-form" id="online-form-2" data-dialog-window="2">
     <div class="wrapper">
 
       <div class="online-form__content">
@@ -998,21 +1001,63 @@
 
           <div class="online-form__wrapper">
             <!-- Введите код  -->
-              <div class="text-field">
-                <input class="write-inputs validate-input" type="text" placeholder=" " name="name"
-                  id="online-form-user-name">
-                <label class="text-field__label" for="online-form-user-name">
-                  <span class="text-field__text">Код</span>
-                </label>
-              </div>
+            <div class="text-field">
+              <input class="write-inputs validate-input" type="text" placeholder=" " name="name"
+                id="online-form-user-name">
+              <label class="text-field__label" for="online-form-user-name">
+                <span class="text-field__text">Код</span>
+              </label>
+            </div>
           </div>
-          <button class="submit-btn form__submit-btn btn" type="submit" id="sendCV">
+          <button class="submit-btn form__submit-btn btn" type="submit">
             <span>подтвердить данные</span>
           </button>
 
           <p class="under-button">Вы сможете отправить код повторно через 176 сек.</p>
 
         </form>
+
+
+        <button class="online-form__close-btn" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M23 1L1 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
+            <path d="M1 1L23 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+
+    </div>
+  </section>
+  <!-- диалоговое окно СПАСИБКИ  -->
+  <section class="online-form" id="online-form-3" data-dialog-window="3">
+    <div class="wrapper">
+
+      <div class="online-form__content">
+        <h2 class="title">Спасибо!<br>
+          Вы записаны на прием.</h2>
+
+        <!-- блок с результатами выбора -->
+        <div class="form-result">
+          <div class="form-result__photo">
+            <img src="./img/form-result-img.jpg" alt="" width="192" height="192">
+          </div>
+          <div class="form-result__details">
+            <h2>Вы выбрали</h2>
+            <ul>
+              <li><span>Филиал Kids'MED:</span>ул. Российская, 72/1, корпус 2</li>
+              <li><span>Должность:</span>Педиатр</li>
+              <li><span>ФИО:</span>Трибунский Артем Михайлович</li>
+              <li><span>Дата:</span>Четверг, 10 ноября, 2022</li>
+              <li><span>Время:</span>9:30 - 10:00</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <button class="submit-btn form__submit-btn btn" type="button">
+          <span>закрыть</span>
+        </button>
 
 
         <button class="online-form__close-btn" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
