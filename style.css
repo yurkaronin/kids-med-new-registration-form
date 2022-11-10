@@ -252,7 +252,7 @@ input[type=radio].visually-hidden {
     right: -25px;
     width: 50px;
     height: 50px;
-    background-image: url(../img/close-wrap-50.svg);
+    background-image: url(./img/close-wrap-50.svg);
   }
   .online-form__close-btn svg {
     width: 20px;
@@ -305,7 +305,7 @@ input[type=radio].visually-hidden {
 }
 .itc-select__toggle::after {
   transition: all 0.3s;
-  background-image: url(../img/new-images/icon1.svg);
+  background-image: url(./img/new-images/icon1.svg);
   width: 18px;
   height: 11px;
 }
@@ -330,6 +330,9 @@ input[type=radio].visually-hidden {
 }
 .itc-select_show .itc-select__toggle {
   border-radius: 8px 8px 0 0;
+}
+.itc-select .itc-select__toggle {
+  padding: 20px 12px;
 }
 .itc-select .itc-select__option_selected {
   color: #000000;

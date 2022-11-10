@@ -19,7 +19,7 @@
 
     &::after {
       transition: all 0.3s;
-      background-image: url(../img/new-images/icon1.svg);
+      background-image: url(./img/new-images/icon1.svg);
       width: 18px;
       height: 11px;
     }
@@ -51,6 +51,10 @@
     .itc-select__toggle {
       border-radius: 8px 8px 0 0;
     }
+  }
+
+  .itc-select__toggle {
+    padding: 20px 12px;
   }
 
   .itc-select__option_selected {
