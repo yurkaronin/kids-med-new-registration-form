@@ -347,6 +347,11 @@ input[type=radio].visually-hidden {
     padding: 1em;
   }
 }
+@media (max-width: 374px) {
+  .itc-select__toggle {
+    font-size: 13px;
+  }
+}
 
 .calendar table {
   width: 100%;
