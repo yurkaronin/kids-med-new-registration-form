@@ -1,39 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Глобальные переменные
-  const onlineForm = document.querySelector('.online-form');
   const onlineForms = document.querySelectorAll('.online-form');
-  const onlineFormCloseBTN = document.querySelector('.online-form__close-btn');
-  const calendarElem = document.querySelector('#calendar');
-  const callBtns = document.querySelectorAll('.call-btn');
+  const callButtons = document.querySelectorAll('.call-btn');
   const pickDateBtn = document.querySelector('#pick-date-btn');
+  const pickDateBtn2 = document.querySelector('#pick-time-btn');
+  const pickDateBtn3 = document.querySelector('#enter-name-btn');
   let calendarWrap = document.querySelector('#calendar-wrap');
+  const customCalendarBody = document.querySelector('#calendar > table');
   // инициализация кастомных select в форме регистрации
   const select1 = new ItcCustomSelect('#select-1');
   const select2 = new ItcCustomSelect('#select-2');
   const select3 = new ItcCustomSelect('#select-3');
 
-  // удаляет все значения атрибута value в кастомном календаре
-  function killEmAll() {
-    for (let item2 of openDay) {
-      item2.removeAttribute('value');
-    };
-  };
-
-  // подключение скриптов из parts
-  function include(url) {
-    let script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-  };
-  // удаляет все значения атрибута value в кастомном календаре
-  function killEmAll() {
-    for (let item2 of openDay) {
-      item2.removeAttribute('value');
-    };
-  };
-
-  // слушаем событие клика по кнопкам
-  for (let item of callBtns) {
+  // слушаем событие клика по кнопкам вызова диалоговых окон
+  for (let item of callButtons) {
     item.addEventListener('click', function () {
 
       let box = item.getAttribute('data-btn-num');
@@ -42,46 +22,62 @@ document.addEventListener('DOMContentLoaded', () => {
       dialogWindow.classList.add('open');
       document.body.classList.add('scroll-off');
 
-      if (box === '1') {
-        // пока что буду вызывать календарь тут, для тестов
-        // createCalendar(calendar, 2022, 11);
-      };
-
-      document.addEventListener('click', (e) => {
-        let clickTarget = e.target;
-
-        if (clickTarget === onlineFormCloseBTN) {
-          dialogWindow.classList.remove('open');
-          document.body.classList.remove('scroll-off');
-        } else if (clickTarget.classList.contains('online-form')) {
-          if (clickTarget.classList.contains('open')) {
-            dialogWindow.classList.remove('open');
+      for (let item of onlineForms) {
+        item.addEventListener('click', function (e) {
+          if (e.target.classList.contains('online-form__close-btn')) {
+            e.target.closest('.online-form').classList.remove('open');
+            document.body.classList.remove('scroll-off');
+          } else if (e.target.classList.contains('online-form')) {
+            e.target.closest('.online-form').classList.remove('open');
+            document.body.classList.remove('scroll-off');
+          } else if (e.target.classList.contains('close-online-form')) {
+            e.target.closest('.online-form').classList.remove('open');
             document.body.classList.remove('scroll-off');
           };
-        };
 
-      });
+        });
+
+      };
+
 
     });
   };
 
-
-  // работаем с кнопкой вызова календаря
-  pickDateBtn.addEventListener('click', () => {
-    // console.log('111');
+  pickDateBtn.addEventListener('click', function () {
+    pickDateBtn.classList.add('hide');
     calendarWrap.classList.remove('hide');
+    pickDateBtn2.classList.remove('hide');
+    // запускаем функцию формирования календаря
     createCalendar(calendar, 2022, 11);
   });
 
+  pickDateBtn2.addEventListener('click', function () {
+    document.querySelector('.reception-time').classList.remove('hide');
+    pickDateBtn2.classList.add('hide');
+
+    pickDateBtn3.classList.remove('hide');
+  });
+  pickDateBtn3.addEventListener('click', function () {
+    document.querySelector('.input-list').classList.remove('hide');
+    document.querySelector('.form-result').classList.remove('hide');
+    document.querySelector('.online-form__footer').classList.remove('hide');
+    pickDateBtn3.classList.add('hide');
+
+    // pickDateBtn3.classList.remove('hide');
+  });
 
 
-  // data-set-btn
+  // подключаем большие блоки кода их отдельных файлов
+  function include(url) {
+    let script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  };
 
-  // подключаем скрипты тут
-  include("./js/parts/calendar.js");
-  // include("./js/parts/callBtns.js");
+  // подключаем большие скрипты скрипты тут
+  include('./js/parts/calendar.js');
 
   // ВРЕМЕННО! Удалить на продакшене!  ////////////
-  document.addEventListener('click', e => console.log(e.target));
+  // document.addEventListener('click', e => console.log(e.target));
 
 });

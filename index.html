@@ -46,16 +46,29 @@
             <span class="header__burger-line"></span>
           </div>
 
-          <div class="header__buttons">
-            <a href="#" class="btn brn--primary header__btn call-btn" data-btn-num="1">
+          <div class="header__buttons" style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          justify-content: center;
+          padding-bottom: 12px;
+          margin-left: auto;
+      ">
+            <a href="#" class="btn brn--primary header__btn call-btn" data-btn-num="1" style="
+            width: initial;
+        ">
               <span>Записаться к врачу</span>
             </a>
 
-            <a href="#" class="btn brn--primary header__btn online-form-proof call-btn" data-btn-num="2">
+            <a href="#" class="btn brn--primary header__btn online-form-proof call-btn" data-btn-num="2" style="
+            width: initial;
+        ">
               <span>Подтверждение данных</span>
             </a>
 
-            <a href="#" class="btn brn--primary header__btn online-form-thanks call-btn" data-btn-num="3">
+            <a href="#" class="btn brn--primary header__btn online-form-thanks call-btn" data-btn-num="3" style="
+            width: initial;
+        ">
               <span>Спасибо!</span>
             </a>
           </div>
@@ -653,14 +666,13 @@
                 </ul>
               </div>
             </figure>
-            <!-- Эта кнопка должна отправлять данные на основе которых формируются доступные дни в календаре  -->
-            <!-- если есть лучшее решение - убираем кнопку и реализуем что то другое  -->
+
             <button class="submit-btn form__submit-btn btn btn-center" type="submit" id="pick-date-btn">
               <span>Выбрать дату</span>
             </button>
 
             <!-- Выберите дату -->
-            <figure class="online-form__group itc-select calendar hide" id="calendar-wrap">
+            <figure class="online-form__group calendar hide" id="calendar-wrap">
               <figcaption class="online-form__title">Выберите дату: <span>10 Ноябрь, 2022</span></figcaption>
               <div class="calendar__wrap">
                 <table>
@@ -870,10 +882,14 @@
                 </button>
 
                 <!-- Динамический календарь -->
-                <div class="calendar" id="calendar"></div>
+                <!-- <div class="calendar" id="calendar"></div> -->
               </div>
 
             </figure>
+
+            <button class="submit-btn form__submit-btn btn btn-center hide" type="submit" id="pick-time-btn">
+              <span>Выберите время</span>
+            </button>
 
             <!-- Выберите время -->
             <figure class="online-form__group reception-time hide">
@@ -917,6 +933,10 @@
               </ul>
 
             </figure>
+
+            <button class="submit-btn form__submit-btn btn btn-center hide" type="submit" id="enter-name-btn">
+              <span>Введите личные данные</span>
+            </button>
 
             <!-- Введите личные данные  -->
             <figure class="online-form__group input-list hide">
@@ -964,13 +984,13 @@
           <div class="online-form__footer hide">
 
             <div class="checkbox">
-              <input class="agreement" type="checkbox" name="remember" id="form-cv-d-f">
+              <input class="agreement" type="checkbox" name="remember" id="form-cv-d-f" checked>
               <label class="checkbox__label smalltext" for="form-cv-d-f">Я выражаю согласие с
                 <a class="smalltext--link-intext" href="#">Политикой конфиденциальности</a>и разрешаю обработку своих
                 персональных данных</label>
             </div>
 
-            <button class="submit-btn form__submit-btn btn" type="submit">
+            <button class="submit-btn form__submit-btn btn close-online-form" type="submit">
               <span>Получить код подтверждения</span>
             </button>
           </div>
@@ -978,7 +998,7 @@
         </form>
 
 
-        <button class="online-form__close-btn" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+        <button class="online-form__close-btn close-online-form" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M23 1L1 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
             <path d="M1 1L23 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
@@ -990,7 +1010,7 @@
     </div>
   </section>
   <!-- диалоговое окно для подтверждения данных  -->
-  <section class="online-form" id="online-form-2" data-dialog-window="2">
+  <section class="online-form online-form--check" id="online-form-2" data-dialog-window="2">
     <div class="wrapper">
 
       <div class="online-form__content">
@@ -1002,14 +1022,14 @@
           <div class="online-form__wrapper">
             <!-- Введите код  -->
             <div class="text-field">
-              <input class="write-inputs validate-input" type="text" placeholder=" " name="name"
+              <input class="write-inputs validate-input" type="number" placeholder=" " name="name"
                 id="online-form-user-name">
               <label class="text-field__label" for="online-form-user-name">
                 <span class="text-field__text">Код</span>
               </label>
             </div>
           </div>
-          <button class="submit-btn form__submit-btn btn" type="submit">
+          <button class="submit-btn form__submit-btn btn close-online-form" type="submit">
             <span>подтвердить данные</span>
           </button>
 
@@ -1030,7 +1050,7 @@
     </div>
   </section>
   <!-- диалоговое окно СПАСИБКИ  -->
-  <section class="online-form" id="online-form-3" data-dialog-window="3">
+  <section class="online-form online-form--thanks" id="online-form-3" data-dialog-window="3">
     <div class="wrapper">
 
       <div class="online-form__content">
@@ -1043,7 +1063,6 @@
             <img src="./img/form-result-img.jpg" alt="" width="192" height="192">
           </div>
           <div class="form-result__details">
-            <h2>Вы выбрали</h2>
             <ul>
               <li><span>Филиал Kids'MED:</span>ул. Российская, 72/1, корпус 2</li>
               <li><span>Должность:</span>Педиатр</li>
@@ -1055,7 +1074,7 @@
 
         </div>
 
-        <button class="submit-btn form__submit-btn btn" type="button">
+        <button class="submit-btn form__submit-btn btn close-online-form" type="button">
           <span>закрыть</span>
         </button>
 
