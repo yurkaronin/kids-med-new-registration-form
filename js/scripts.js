@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const pickDateBtn3 = document.querySelector('#enter-name-btn');
   let calendarWrap = document.querySelector('#calendar-wrap');
   const customCalendarBody = document.querySelector('#calendar > table');
+  const custSelect = document.querySelectorAll('.itc-select__toggle');
+  const custSelectParent = document.querySelectorAll('.itc-select');
   // инициализация кастомных select в форме регистрации
   const select1 = new ItcCustomSelect('#select-1');
   const select2 = new ItcCustomSelect('#select-2');
@@ -73,6 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
   };
+
+
+  // for (let item of custSelect) {
+  //   item.addEventListener('click', function () {
+  //     custSelectParent.forEach((element) => {
+  //       element.classList.remove('itc-select_show');
+  //     });
+  //   });
+  // };
 
   // подключаем большие скрипты скрипты тут
   include('./js/parts/calendar.js');

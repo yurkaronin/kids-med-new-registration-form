@@ -12,6 +12,12 @@
     background-color: #fff;
     font-style: initial;
 
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding-right: 30px !important;
+    box-sizing: border-box;
+
     &:not([value=""]) {
       color: #000000;
       border-color: rgba(#34358c, 1);
@@ -22,6 +28,10 @@
       background-image: url(./img/new-images/icon1.svg);
       width: 18px;
       height: 11px;
+
+      position: absolute;
+      top: 40%;
+      right: 18px;
     }
 
     // активные классы
@@ -72,10 +82,9 @@
     }
   }
   @media (max-width: 374px) {
-    &__toggle {
+    &__toggle,
+    .itc-select__toggle {
       font-size: 13px;
     }
   }
-
 }
-
