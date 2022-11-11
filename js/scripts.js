@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     calendarWrap.classList.remove('hide');
     pickDateBtn2.classList.remove('hide');
     // запускаем функцию формирования календаря
-    createCalendar(calendar, 2022, 11);
+    // createCalendar(calendar, 2022, 11);
   });
 
   pickDateBtn2.addEventListener('click', function () {
@@ -90,5 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ВРЕМЕННО! Удалить на продакшене!  ////////////
   // document.addEventListener('click', e => console.log(e.target));
-
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".calendar__button--prev",
+      prevEl: ".calendar__button--next",
+    },
+  });
 });

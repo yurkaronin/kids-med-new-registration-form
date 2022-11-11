@@ -36,7 +36,7 @@ input[type=radio].visually-hidden {
   left: 0;
   opacity: 0;
   pointer-events: none;
-  z-index: 500;
+  z-index: 10000000;
   -webkit-transition: opacity 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   transition: opacity 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   overflow-x: scroll;
@@ -68,15 +68,15 @@ input[type=radio].visually-hidden {
   margin-top: auto;
   margin-left: auto;
   margin-right: 52px;
-  margin-bottom: 20px;
   max-width: 1168px;
   overflow: -moz-scrollbars-none;
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin: 0 auto;
-  top: 10%;
+  top: 10% !important;
   border-radius: 16px;
   height: max-content;
+  margin-bottom: 200px;
 }
 .online-form__content {
   max-width: 100%;
@@ -136,19 +136,21 @@ input[type=radio].visually-hidden {
   background-color: rgba(52, 61, 66, 0.2);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  z-index: 10;
+  z-index: 1000000;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s;
 }
 .online-form.open {
-  z-index: 1000;
   opacity: 1;
   pointer-events: initial;
 }
 .online-form__group {
   position: relative;
   margin-bottom: 24px;
+}
+.online-form__group .calendar {
+  overflow: hidden;
 }
 .online-form__grop-name {
   display: block;

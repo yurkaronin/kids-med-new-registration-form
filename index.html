@@ -25,6 +25,7 @@
   <link rel="stylesheet" media="screen and (min-width:1px)" href="./index_files/style.min.css">
 
   <!-- мои стили  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./libs/itc-custom-select/itc-custom-select.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -364,12 +365,12 @@
                   </div>
                 </div>
               </div>
-              <button type="button" class="swiper-button-prev slider-btn slider-btn--prev main-slider__btn--prev"
+              <!-- <button type="button" class="swiper-button-prev slider-btn slider-btn--prev main-slider__btn--prev"
                 tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-eb93e842849e10c82"></button>
               <button type="button" class="swiper-button-next slider-btn slider-btn--next main-slider__btn--next"
-                tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-eb93e842849e10c82"></button>
+                tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-eb93e842849e10c82"></button> -->
 
-              <div
+              <!-- <div
                 class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
                 <span class="swiper-pagination-bullet" tabindex="0" role="button"
                   aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button"
@@ -378,7 +379,7 @@
                   class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
                   aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button"
                   aria-label="Go to slide 5"></span>
-              </div>
+              </div> -->
               <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
             </div>
           </div>
@@ -602,7 +603,7 @@
             <figure class="online-form__group itc-select" id="select-1">
               <button type="button" class="itc-select__toggle" name="Выбор филиала" value="" data-select="toggle"
                 data-index="-1">Выберите филиал Kids'MED</button>
-                <figcaption class="online-form__grop-name">Выберите филиал Kids'MED</figcaption>
+              <figcaption class="online-form__grop-name">Выберите филиал Kids'MED</figcaption>
 
               <div class="itc-select__dropdown">
                 <ul class="itc-select__options">
@@ -619,7 +620,7 @@
             <figure class="online-form__group itc-select" id="select-2">
               <button type="button" class="itc-select__toggle" name="Выбор направления" value="" data-select="toggle"
                 data-index="-1">Выберите направление</button>
-                <figcaption class="online-form__grop-name">Выберите направление</figcaption>
+              <figcaption class="online-form__grop-name">Выберите направление</figcaption>
 
               <div class="itc-select__dropdown">
                 <ul class="itc-select__options">
@@ -651,7 +652,7 @@
             <figure class="online-form__group itc-select" id="select-3">
               <button type="button" class="itc-select__toggle" name="Выбор врача" value="" data-select="toggle"
                 data-index="-1">Выберите врача</button>
-                <figcaption class="online-form__grop-name">Выберите врача</figcaption>
+              <figcaption class="online-form__grop-name">Выберите врача</figcaption>
 
               <div class="itc-select__dropdown">
                 <ul class="itc-select__options">
@@ -673,197 +674,592 @@
             <figure class="online-form__group calendar hide" id="calendar-wrap">
               <figcaption class="online-form__title">Выберите дату: <span>10 Ноябрь, 2022</span></figcaption>
               <div class="calendar__wrap">
-                <table>
-                  <tr>
-                    <th>ПН</th>
-                    <th>ВТ</th>
-                    <th>СР</th>
-                    <th>ЧТ</th>
-                    <th>ПТ</th>
-                    <th>СБ</th>
-                    <th>ВС</th>
-                  </tr>
+                <div class="swiper mySwiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <table>
+                        <tr>
+                          <th>ПН</th>
+                          <th>ВТ</th>
+                          <th>СР</th>
+                          <th>ЧТ</th>
+                          <th>ПТ</th>
+                          <th>СБ</th>
+                          <th>ВС</th>
+                        </tr>
 
-                  <tr>
-                    <td class="empty"></td>
-                    <td class="open">
-                      <span>1</span>
-                      <small>16:00-20:00</small>
-                    </td>
-                    <td>
-                      <span>2</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>3</span>
-                      <small>16:00-20:00</small>
-                    </td>
-                    <td>
-                      <span>4</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>5</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>6</span>
-                      <small>Нет записи</small>
-                    </td>
-                  </tr>
+                        <tr>
+                          <td class="empty"></td>
+                          <td class="open">
+                            <span>1</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>2</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>3</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>4</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>5</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>6</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
 
-                  <tr>
-                    <td>
-                      <span>7</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>8</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>9</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open" value="choose">
-                      <span>10</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>11</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>12</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>13</span>
-                      <small>Нет записи</small>
-                    </td>
-                  </tr>
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open" value="choose">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
 
-                  <tr>
-                    <td>
-                      <span>7</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>8</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>9</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>10</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>11</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>12</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>13</span>
-                      <small>Нет записи</small>
-                    </td>
-                  </tr>
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
 
-                  <tr>
-                    <td>
-                      <span>14</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>15</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>16</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>17</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>18</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>19</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>20</span>
-                      <small>Нет записи</small>
-                    </td>
-                  </tr>
+                        <tr>
+                          <td>
+                            <span>14</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>15</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>16</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>17</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>18</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>19</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>20</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
 
-                  <tr>
-                    <td>
-                      <span>21</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>22</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>23</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>24</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>25</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>26</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td>
-                      <span>27</span>
-                      <small>Нет записи</small>
-                    </td>
-                  </tr>
+                        <tr>
+                          <td>
+                            <span>21</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>22</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>23</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>24</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>25</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>26</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>27</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
 
-                  <tr>
-                    <td>
-                      <span>28</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="open">
-                      <span>29</span>
-                      <small>8:00-12:00</small>
-                    </td>
-                    <td>
-                      <span>30</span>
-                      <small>Нет записи</small>
-                    </td>
-                    <td class="empty">
+                        <tr>
+                          <td>
+                            <span>28</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>29</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>30</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="empty">
 
-                    </td>
-                    <td class="empty">
+                          </td>
+                          <td class="empty">
 
-                    </td>
-                    <td class="empty">
+                          </td>
+                          <td class="empty">
 
-                    </td>
-                    <td class="empty">
+                          </td>
+                          <td class="empty">
 
-                    </td>
-                  </tr>
+                          </td>
+                        </tr>
 
-                </table>
+                      </table>
+                    </div>
+                    <div class="swiper-slide">
+                      <table>
+                        <tr>
+                          <th>ПН</th>
+                          <th>ВТ</th>
+                          <th>СР</th>
+                          <th>ЧТ</th>
+                          <th>ПТ</th>
+                          <th>СБ</th>
+                          <th>ВС</th>
+                        </tr>
+
+                        <tr>
+                          <td class="empty"></td>
+                          <td class="open">
+                            <span>1</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>2</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>3</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>4</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>5</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>6</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open" value="choose">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>14</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>15</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>16</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>17</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>18</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>19</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>20</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>21</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>22</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>23</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>24</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>25</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>26</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>27</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>28</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>29</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>30</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                        </tr>
+
+                      </table>
+                    </div>
+                    <div class="swiper-slide">
+                      <table>
+                        <tr>
+                          <th>ПН</th>
+                          <th>ВТ</th>
+                          <th>СР</th>
+                          <th>ЧТ</th>
+                          <th>ПТ</th>
+                          <th>СБ</th>
+                          <th>ВС</th>
+                        </tr>
+
+                        <tr>
+                          <td class="empty"></td>
+                          <td class="open">
+                            <span>1</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>2</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>3</span>
+                            <small>16:00-20:00</small>
+                          </td>
+                          <td>
+                            <span>4</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>5</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>6</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open" value="choose">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>7</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>8</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>9</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>10</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>11</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>12</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>13</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>14</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>15</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>16</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>17</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>18</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>19</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>20</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>21</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>22</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>23</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>24</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>25</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>26</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td>
+                            <span>27</span>
+                            <small>Нет записи</small>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span>28</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="open">
+                            <span>29</span>
+                            <small>8:00-12:00</small>
+                          </td>
+                          <td>
+                            <span>30</span>
+                            <small>Нет записи</small>
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                          <td class="empty">
+
+                          </td>
+                        </tr>
+
+                      </table>
+                    </div>
+
+                  </div>
+
+                </div>
+
                 <!-- кнопки переключения месяца  -->
 
                 <!-- назад  -->
@@ -880,7 +1276,6 @@
                 </button>
 
                 <!-- Динамический календарь -->
-                <!-- <div class="calendar" id="calendar"></div> -->
               </div>
 
             </figure>
@@ -996,8 +1391,8 @@
         </form>
 
 
-        <button class="online-form__close-btn close-online-form" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <button class="online-form__close-btn close-online-form" type="button"><svg width="24" height="24"
+            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M23 1L1 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
             <path d="M1 1L23 23" stroke="#343D42" stroke-width="2" stroke-linecap="round" />
           </svg>
@@ -1009,7 +1404,6 @@
   </section>
   <!-- диалоговое окно для подтверждения данных  -->
   <section class="online-form online-form--check" id="online-form-2" data-dialog-window="2">
-    <!-- <div class="online-form__overlay"></div> -->
     <div class="wrapper">
 
       <div class="online-form__content">
@@ -1114,6 +1508,8 @@
   <!-- новые библиотеки и зависимости  -->
   <script src="libs/itc-custom-select/itc-custom-select.js"></script>
   <!-- мои скрипты  -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="js/scripts.js"></script>
 
 </body>
