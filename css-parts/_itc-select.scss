@@ -46,6 +46,7 @@
     border-radius: 0 0 8px 8px;
     box-shadow: 0px 8px 32px rgba(52, 61, 66, 0.2);
     position: absolute;
+    z-index: 9999;
   }
 
   &__option {

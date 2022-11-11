@@ -2,6 +2,9 @@
 
 .scroll-off {
   overflow: hidden;
+  .online-form__overlay {
+    opacity: 1;
+  }
 }
 
 
