@@ -1336,10 +1336,31 @@
               <figcaption class="online-form__title">Введите личные данные</figcaption>
               <ul>
                 <li class="text-field">
-                  <input class="write-inputs validate-input" type="text" placeholder=" " name="name"
-                    id="online-form-user-name">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="firstname"
+                    id="online-form-user-name" required>
                   <label class="text-field__label" for="online-form-user-name">
-                    <span class="text-field__text">ФИО</span>
+                    <span class="text-field__text">Фамилия<small>*</small></span>
+                  </label>
+                </li>
+                <li class="text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="lastname"
+                    id="online-form-user-name" required>
+                  <label class="text-field__label" for="lastname">
+                    <span class="text-field__text">Имя<small>*</small></span>
+                  </label>
+                </li>
+                <li class="text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="fathername"
+                    id="online-form-user-name">
+                  <label class="text-field__label" for="fathername">
+                    <span class="text-field__text">Отчество</span>
+                  </label>
+                </li>
+                <li class="text-field">
+                  <input class="write-inputs validate-input" type="date" placeholder="дата рождения" name="date"
+                    id="online-form-user-name" value=" ">
+                  <label class="text-field__label" for="date">
+                    <span class="text-field__text">Дата рождения</span>
                   </label>
                 </li>
                 <li class="text-field">
