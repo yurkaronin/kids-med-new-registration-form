@@ -1328,12 +1328,12 @@
             </figure>
 
             <button class="submit-btn form__submit-btn btn btn-center hide" type="button" id="enter-name-btn">
-              <span>Введите личные данные</span>
+              <span>Введите данные пациента</span>
             </button>
 
-            <!-- Введите личные данные  -->
+            <!-- Введите данные пациента  -->
             <figure class="online-form__group input-list hide">
-              <figcaption class="online-form__title">Введите личные данные</figcaption>
+              <figcaption class="online-form__title">Введите данные пациента</figcaption>
               <ul>
                 <li class="text-field">
                   <input class="write-inputs validate-input" type="text" placeholder=" " name="firstname"
@@ -1356,11 +1356,28 @@
                     <span class="text-field__text">Отчество</span>
                   </label>
                 </li>
-                <li class="text-field">
+                <!-- <li class="text-field">
                   <input class="write-inputs validate-input" type="date" placeholder="дата рождения" name="date"
-                    id="online-form-user-name" value=" ">
+                    id="online-form-user-name">
                   <label class="text-field__label" for="date">
                     <span class="text-field__text">Дата рождения</span>
+                  </label>
+                </li> -->
+                <li class="text-field">
+                  <input class="write-inputs validate-input" type="text" name="date2"
+                    id="mydata"
+                    placeholder=" "
+                    onkeyup="
+                        var v = this.value;
+                        if (v.match(/^\d{2}$/) !== null) {
+                            this.value = v + '/';
+                        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+                            this.value = v + '/';
+                        }"
+                    maxlength="10"
+                    >
+                  <label class="text-field__label" for="date2">
+                    <span class="text-field__text">Дата рождения (дд/мм/гггг)</span>
                   </label>
                 </li>
                 <li class="text-field">

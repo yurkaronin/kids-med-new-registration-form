@@ -787,8 +787,3 @@ input[type=radio].visually-hidden {
   margin-left: 6px;
   font-size: 1.1em;
 }
-
-.input-list .write-inputs[type=date]:not(:placeholder-shown) {
-  color: #343d42;
-  border-color: rgba(52, 53, 140, 0.2);
-}
