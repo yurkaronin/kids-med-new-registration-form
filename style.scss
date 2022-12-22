@@ -35,7 +35,31 @@
   font-size: 1.1em;
 }
 
-.input-list .write-inputs[type='date']:not(:placeholder-shown) {
+.input-list .write-inputs[type="date"]:not(:placeholder-shown) {
   color: #343d42;
-  border-color: rgba(52, 53, 140, .2);
+  border-color: rgba(52, 53, 140, 0.2);
 }
+
+
+// .input-list .write-inputs[type="date"]::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+// .input-list .write-inputs[type="date"]::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+// .input-list .write-inputs[type="date"]::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+//   color: transparent;
+// }
+
+
+// input[type=date]::-webkit-datetime-edit { padding: 1em; }
+// input[type=date]::-webkit-datetime-edit-fields-wrapper { background: silver; }
+// input[type=date]::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
+// input[type=date]::-webkit-datetime-edit-month-field { color: blue; }
+// input[type=date]::-webkit-datetime-edit-day-field { color: green; }
+// input[type=date]::-webkit-datetime-edit-year-field { color: purple; }
+// input[type=date]::-webkit-inner-spin-button { display: none; }
+// // input[type=date]::-webkit-calendar-picker-indicator { background: orange;}
+
+// input[type=date]:required:invalid::-webkit-datetime-edit {
+//   color: transparent;
+// }
+// input[type=date]:focus::-webkit-datetime-edit {
+//   color: black !important;
+// }
