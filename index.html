@@ -1356,34 +1356,25 @@
                     <span class="text-field__text">Отчество</span>
                   </label>
                 </li>
-                <!-- <li class="text-field">
-                  <input class="write-inputs validate-input" type="date" placeholder="дата рождения" name="date"
-                    id="online-form-user-name">
-                  <label class="text-field__label" for="date">
-                    <span class="text-field__text">Дата рождения</span>
-                  </label>
-                </li> -->
                 <li class="text-field">
-                  <input class="write-inputs validate-input" type="text" name="date2"
-                    id="mydata"
-                    placeholder=" "
-                    onkeyup="
-                        var v = this.value;
-                        if (v.match(/^\d{2}$/) !== null) {
-                            this.value = v + '/';
-                        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
-                            this.value = v + '/';
-                        }"
-                    maxlength="10"
-                    >
-                  <label class="text-field__label" for="date2">
-                    <span class="text-field__text">Дата рождения (дд/мм/гггг)</span>
+                  <input class="write-inputs validate-input" type="date" placeholder="дата рождения" name="date"
+                    id="online-form-user-date">
+                  <label class="text-field__label" for="online-form-user-date">
+                    <span class="text-field__text">Дата рождения</span>
                   </label>
                 </li>
                 <li class="text-field">
-                  <input class="write-inputs validate-input" type="number" placeholder=" " name="phone"
-                    id="online-form-user-phone">
-                  <label class="text-field__label" for="online-form-user-phone">
+                  <input class="write-inputs validate-input" type="text" name="date2"
+                    id="mydata"
+                    placeholder=" ">
+                  <label class="text-field__label" for="mydata">
+                    <span class="text-field__text">Дата рождения (дд:мм:гггг)</span>
+                  </label>
+                </li>
+                <li class="text-field">
+                  <input class="write-inputs validate-input" type="text" placeholder=" " name="phone"
+                    id="mytel" required>
+                  <label class="text-field__label" for="mytel">
                     <span class="text-field__text">Телефон</span>
                   </label>
                 </li>
@@ -1545,6 +1536,7 @@
 
   <!-- новые библиотеки и зависимости  -->
   <script src="libs/itc-custom-select/itc-custom-select.js"></script>
+  <script src="libs/imask.js"></script>
   <!-- мои скрипты  -->
 
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

@@ -98,4 +98,19 @@ document.addEventListener('DOMContentLoaded', () => {
       prevEl: ".calendar__button--next",
     },
   });
+
+  var dateMask = IMask(
+    document.getElementById('mydata'),
+    {
+      mask: '00:00:0000',
+      lazy: false,
+    });
+
+  var telMask = IMask(
+    document.getElementById('mytel'),
+    {
+      mask: '+7 (000) 000-00-00',
+      lazy: false,
+    });
+
 });
